@@ -1,6 +1,9 @@
 import express from "express";
 import Razorpay from "razorpay";
 import Order from "../models/Order.js";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const router = express.Router();
 
