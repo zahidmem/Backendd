@@ -13,7 +13,6 @@ export const razorpay = new Razorpay({
   key_id: process.env.RAZORPAY_KEY_ID,
   key_secret: process.env.RAZORPAY_KEY_SECRET,
 });
-
 const app = express();
 app.use(
   cors({
@@ -22,15 +21,12 @@ app.use(
   }),
 );
 app.use(express.json());
-
 // MongoDB connect
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB Connected"))
   .catch((err) => console.log(err));
-
 // Routes
-
 app.use("/api/payment", paymentRoutes);
 app.use("/api/orders", orderRoutes);
 app.use("/api/address", addressRoutes);

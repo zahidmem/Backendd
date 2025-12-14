@@ -1,8 +1,10 @@
 import express from "express";
 import razorpay from "../config/razorpay.js";
 import dotenv from "dotenv";
+
 const router = express.Router();
 dotenv.config();
+
 router.post("/order", async (req, res) => {
   try {
     const { amount } = req.body;
