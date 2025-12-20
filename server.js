@@ -16,9 +16,13 @@ export const razorpay = new Razorpay({
 const app = express();
 app.use(
   cors({
-    origin: "*",
-    methods: "GET,POST,PUT,DELETE",
-  }),
+    origin: [
+      "https://allgrab.in",
+      "https://www.allgrab.in"
+    ],
+    methods: ["GET", "POST"],
+    credentials: true,
+  })
 );
 app.use(express.json());
 // MongoDB connect
