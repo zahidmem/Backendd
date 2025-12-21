@@ -9,12 +9,15 @@ import addressRoutes from "./routes/addressRoutes.js";
 dotenv.config();
 
 const app = express();
-app.use(
-  cors({
-    origin: ["https://allgrab.vercel.app"],
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-  }),
-);
+
+
+const allowedOrigins = [
+  "https://allgrab.onrender.com",
+  "https://www.allgrab.in",
+  "https://allgrab.in",
+];
+
+app.use(cors({ origin: true }));
 
 app.use(express.json());
 // MongoDB connect
