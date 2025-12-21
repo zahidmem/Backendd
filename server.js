@@ -7,23 +7,15 @@ import paymentRoutes from "./routes/paymentRoutes.js";
 import orderRoutes from "./routes/orderRoutes.js";
 import addressRoutes from "./routes/addressRoutes.js";
 dotenv.config();
-import Razorpay from "razorpay";
 
-export const razorpay = new Razorpay({
-  key_id: process.env.RAZORPAY_KEY_ID,
-  key_secret: process.env.RAZORPAY_KEY_SECRET,
-});
 const app = express();
 app.use(
   cors({
-    origin: [
-      "https://allgrab.in",
-      "https://www.allgrab.in"
-    ],
-    methods: ["GET", "POST"],
-    credentials: true,
-  })
+    origin: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  }),
 );
+
 app.use(express.json());
 // MongoDB connect
 mongoose
