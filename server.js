@@ -17,7 +17,7 @@ const allowedOrigins = [
   "https://allgrab.in",
 ];
 
-app.use(cors({ origin: true }));
+app.use(cors());
 
 app.use(express.json());
 // MongoDB connect
