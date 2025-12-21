@@ -6,35 +6,14 @@ import dotenv from "dotenv";
 import paymentRoutes from "./routes/paymentRoutes.js";
 import orderRoutes from "./routes/orderRoutes.js";
 import addressRoutes from "./routes/addressRoutes.js";
+
 dotenv.config();
 
 const app = express();
 
+app.use(cors({origin: "http://allgrab.vercel.app"}))
 
-const allowedOrigins = [
-  "https://allgrab.onrender.com",
-  "https://www.allgrab.in",
-  "https://allgrab.in",
-];
 
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
-  );
-  res.header(
-    "Access-Control-Allow-Methods",
-    "GET, POST, PUT, DELETE, OPTIONS"
-  );
-
-  // Preflight request handle
-  if (req.method === "OPTIONS") {
-    return res.sendStatus(200);
-  }
-
-  next();
-});
 
 app.use(express.json());
 // MongoDB connect
