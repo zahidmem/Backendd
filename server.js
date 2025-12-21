@@ -11,10 +11,7 @@ dotenv.config();
 
 const app = express();
 
-app.use(cors({origin: "http://allgrab.vercel.app"}))
-
-
-
+app.use(cors())
 app.use(express.json());
 // MongoDB connect
 mongoose
