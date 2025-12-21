@@ -11,7 +11,7 @@ dotenv.config();
 const app = express();
 app.use(
   cors({
-    origin: true,
+    origin: ["https://allgrab.vercel.app"],
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   }),
 );
