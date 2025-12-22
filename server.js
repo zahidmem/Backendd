@@ -11,7 +11,15 @@ dotenv.config();
 
 const app = express();
 
-app.use(cors())
+app.use(cors({
+  origin: true, // 🔥 allow ALL origins safely
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"]
+}));
+
+// preflight support
+
 app.use(express.json());
 // MongoDB connect
 mongoose
