@@ -12,7 +12,7 @@ dotenv.config();
 const app = express();
 
 app.use(cors({
-  origin: true, // 🔥 allow ALL origins safely
+  origin:"https://allgrab.vercel.app", // 🔥 allow ALL origins safely
   credentials: true,
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"]
