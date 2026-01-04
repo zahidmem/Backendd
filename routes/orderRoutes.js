@@ -10,9 +10,26 @@ const razorpay = new Razorpay({
   key_secret: process.env.RAZORPAY_KEY_SECRET,
 });
 
+console.log("KEY_ID:", process.env.RAZORPAY_KEY_ID);
+console.log("KEY_SECRET LENGTH:", process.env.RAZORPAY_KEY_SECRET?.length);
+
+router.get("/test-rzp", async (req, res) => {
+  try {
+    const order = await razorpay.orders.create({
+      amount: 100,
+      currency: "INR",
+    });
+    res.json(order);
+  } catch (e) {
+    console.log("TEST RZP ERROR:", e);
+    res.status(500).json(e);
+  }
+});
+
 // =======================================
 // 1️⃣ CREATE ORDER FOR RAZORPAY PAYMENT
 // =======================================
+
 router.post("/order", async (req, res) => {
   try {
     const { amount } = req.body;
@@ -23,7 +40,7 @@ router.post("/order", async (req, res) => {
     }
 
     const options = {
-      amount: amount * 100, // Convert to paisa
+      amount: Number(amount) * 100,
       currency: "INR",
       receipt: "receipt_" + Date.now(),
     };

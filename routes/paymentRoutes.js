@@ -21,7 +21,9 @@ router.post("/order", async (req, res) => {
     res.json({ order });
   } catch (error) {
     console.log(error);
-    res.status(500).json({ message: "Order creation failed" });
+    res
+      .status(500)
+      .json({ message: "Order creation failed ,yaha hit hoti hai api" });
   }
 });
 
