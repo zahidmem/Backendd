@@ -13,7 +13,11 @@ const app = express();
 
 app.use(
   cors({
-    origin: "https://allgrab.netlify.app",
+    origin: [
+      "https://allgrab.netlify.app",
+      "https://allgrab.in",
+      "https://www.allgrab.in",
+    ],
     methods: ["GET", "POST"],
     credentials: true,
   }),
